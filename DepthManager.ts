@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export class DepthManager {
   private market: string;
   private bids: {
@@ -14,14 +12,14 @@ export class DepthManager {
     this.asks = {};
     setInterval(() => {
       this.pollMarket();
-    }, 500);
+    }, 2000);
   }
 
   async pollMarket() {
     const res = await fetch(
       `https://public.coindcx.com/market_data/orderbook?pair=${this.market}`
     );
-    const depth = await res.json();
+    const depth = await res.json() as DepthResponse;
     this.bids = depth.bids;
     this.asks = depth.asks;
   }
@@ -46,4 +44,10 @@ export class DepthManager {
       lowestAsk,
     };
   }
+}
+
+interface DepthResponse {
+  bids: { [key: string]: string };
+  asks: { [key: string]: string };
+  // Add other properties if present in the actual response
 }

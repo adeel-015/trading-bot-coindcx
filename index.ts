@@ -1,4 +1,3 @@
-import axios from "axios";
 import { DepthManager } from "./DepthManager";
 
 const solInrMarket = new DepthManager("B-XAI_INR");
@@ -26,4 +25,4 @@ setInterval(() => {
   const canGetInr2 = canGetUsdt2 * usdtInrMarket.getRelevantDepth().highestBid;
 
   console.log(`You can convert ${initialInr} INR into ${canGetInr2} INR`);
-}, 500);
+}, 2000);
