@@ -17,7 +17,7 @@ setInterval(() => {
   const canGetUsdt = canGetInr / usdtInrMarket.getRelevantDepth().lowestAsk;
   const canGetSol = canGetUsdt / solUsdtMarket.getRelevantDepth().lowestAsk;
 
-  console.log(`You can convert ${1} SOL into ${canGetSol} SOL`);
+  console.log(`You can convert ${1} XAI into ${canGetSol} XAI`);
 
   // Buy SOL from INR, sell SOL for USDT, sell USDT for INR.
   const initialInr = solInrMarket.getRelevantDepth().highestBid + 0.001;
